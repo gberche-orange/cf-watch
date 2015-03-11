@@ -12,4 +12,5 @@ shortcuts to ease watching and searching cf related activities
    * provide smart hiearchical groups of orgs/users ('official', 'distros', 'other pivotal', 'individuals')
    * ease date filtering with "last 10 days" 
    * ease following influencial users: comments, issues, commits (similar to github "Follow" feature)
+   * ease file path searching e.g. "cf-release/**/spec"
 * publish as an rss/newsfeed
