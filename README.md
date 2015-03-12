@@ -26,3 +26,6 @@ shortcuts to ease watching and searching cf related activities
    * http://bosh_artifacts.cfapps.io/
    * http://git-pipeline.cfapps.io/pipelines/runtime
    * travis-ci
+* youtube
+
+## twitter
