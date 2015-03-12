@@ -11,6 +11,12 @@ shortcuts to ease watching and searching cf related activities
 
 ## github
 
+* more sources
+  * wikis such as cf-community wikis
+    * currently [custom google search query](https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Search)
+    * https://github.com/linyows/github-wiki-search
+    * https://chrome.google.com/webstore/detail/github-wiki-search/gdifdhnjmjaidbajhapmbcbnoocoeooc
+
 * include as an extension of github search form
    * provide smart hiearchical groups of orgs/users ('official', 'distros', 'other pivotal', 'individuals')
    * ease date filtering with "last 10 days" 
