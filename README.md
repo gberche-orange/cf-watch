@@ -28,8 +28,16 @@ Implementation-wise:
 * html mashup to github.com/search
    * https://github.algolia.com/ instant search L&F, need to restrict to CF
 * explore search API https://developer.github.com/v3/search/
-   * https://github.com/jgallen23/hubsearch preview at http://projects.jga.me/hubsearch/#/Java/cloudfoundry
-   * https://github.com/mapbox/github-org-browser preview at http://mapbox.github.io/github-org-browser/
+   * example apps
+     * https://github.com/jgallen23/hubsearch preview at http://projects.jga.me/hubsearch/#/Java/cloudfoundry
+     * https://github.com/mapbox/github-org-browser preview at http://mapbox.github.io/github-org-browser/
+     * https://github.com/DanaDowell/repo-search broken preview at https://rawgit.com/DanaDowell/repo-search/master/index.html
+     * https://github.com/simonsmith/github-user-search preview at http://simonsmith.github.io/github-user-search/
+     * https://github.com/databass/repowatcher preview at http://repowatcher.net/
+     * https://github.com/gresrun/GHOrgBrowser (java)
+   * libs
+     * https://github.com/philschatz/octokat.js
+
 
 ## google search
 
