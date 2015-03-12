@@ -20,7 +20,10 @@ shortcuts to ease watching and searching cf related activities
 
 Implementation-wise:
 * html mashup to github.com/search
+   * https://github.algolia.com/ instant search L&F, need to restrict to CF
 * explore search API https://developer.github.com/v3/search/
+   * https://github.com/jgallen23/hubsearch preview at http://projects.jga.me/hubsearch/#/Java/cloudfoundry
+   * https://github.com/mapbox/github-org-browser preview at http://mapbox.github.io/github-org-browser/
 
 ## google search
 
