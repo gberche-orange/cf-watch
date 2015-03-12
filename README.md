@@ -8,9 +8,21 @@ shortcuts to ease watching and searching cf related activities
    
 # todo
 
+## github
+
 * include as an extension of github search form
    * provide smart hiearchical groups of orgs/users ('official', 'distros', 'other pivotal', 'individuals')
    * ease date filtering with "last 10 days" 
    * ease following influencial users: comments, issues, commits (similar to github "Follow" feature)
    * ease file path searching e.g. "cf-release/**/spec"
 * publish as an rss/newsfeed
+
+## google search
+
+* cf community blogs
+* this week in cf
+* cloudfoundry google group
+* pipelines
+   * http://bosh_artifacts.cfapps.io/
+   * http://git-pipeline.cfapps.io/pipelines/runtime
+   * travis-ci
