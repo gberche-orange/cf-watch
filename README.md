@@ -47,7 +47,7 @@ Implementation-wise:
 * cloudfoundry google group (e.g. [mysql](https://groups.google.com/a/cloudfoundry.org/forum/?fromgroups=#!topicsearch/mysql) )
 * pipelines
    * http://bosh_artifacts.cfapps.io/
-   * http://git-pipeline.cfapps.io/pipelines/runtime
+   * http://git-pipeline.cfapps.io/pipelines/runtime (e.g. [loggregator](https://www.google.fr/search?q=site:git-pipeline.cfapps.io+routing-api&ie=utf-8&oe=utf-8&gws_rd=cr&ei=QFcJVdXVA8u07gb__4DwBA#q=site:git-pipeline.cfapps.io+loggregator) )
    * travis-ci
 * youtube videos and transcripts ( eg [CFAD](https://www.youtube.com/api/timedtext?sparams=asr_langs%2Ccaps%2Cv%2Cexpire&expire=1426700408&caps=asr&hl=en-US&key=yttt1&signature=911C9CE963387B5FE74370C642A622094976AB2F.4D672E50A26B8815277CDE78B023039E3B150BFD&v=UQFU3tpWwiI&asr_langs=ru%2Ces%2Cnl%2Cpt%2Cko%2Cde%2Cit%2Cja%2Cen%2Cfr&type=track&lang=en&name&kind=asr&fmt=1) )
 * trackers
