@@ -21,7 +21,7 @@ shortcuts to ease watching and searching cf related activities
    * provide smart hiearchical groups of orgs/users ('official', 'distros', 'other pivotal', 'individuals')
    * ease date filtering with "last 10 days" 
    * ease following influencial users: comments, issues, commits (similar to github "Follow" feature)
-   * ease file path searching e.g. "cf-release/**/spec"
+   * ease file path searching e.g. "cf-release/jobs/**/spec" (example [spec](https://github.com/cloudfoundry/cf-release/blob/962d606ab8260f25af2c7ef335bd74b9e18a7169/jobs/login/spec#L28) )
 * publish as an rss/newsfeed
 
 Implementation-wise:
