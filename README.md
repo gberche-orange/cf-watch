@@ -42,7 +42,7 @@ Implementation-wise:
      * https://github.com/philschatz/octokat.js
 
 
-## google search
+## other sources
 
 * cf community blogs
 * this week in cf
@@ -53,8 +53,11 @@ Implementation-wise:
    * travis-ci
 * youtube videos and transcripts ( eg [CFAD](https://www.youtube.com/api/timedtext?sparams=asr_langs%2Ccaps%2Cv%2Cexpire&expire=1426700408&caps=asr&hl=en-US&key=yttt1&signature=911C9CE963387B5FE74370C642A622094976AB2F.4D672E50A26B8815277CDE78B023039E3B150BFD&v=UQFU3tpWwiI&asr_langs=ru%2Ces%2Cnl%2Cpt%2Cko%2Cde%2Cit%2Cja%2Cen%2Cfr&type=track&lang=en&name&kind=asr&fmt=1) )
 * trackers
-  * using specific project endpoint ```/projects/{project_id}/stories?filter=mysql``` http://www.pivotaltracker.com/help/api/rest/v5#Stories , eg [mysql stories](https://www.pivotaltracker.com/services/v5/projects/969486/stories?filter=mysql) or [mysql search](https://www.pivotaltracker.com/services/v5/projects/969486/search?query=mysql) and aggregate among multiple projects, possibly using the [upcoming request aggregator](http://www.pivotaltracker.com/help/api/rest/v5#Request_Aggregator)
-  * http://www.pivotaltracker.com/help/faq#howcanasearchberefined
+  * using specific project endpoints
+     * ```/projects/{project_id}/stories?filter=mysql``` http://www.pivotaltracker.com/help/api/rest/v5#Stories , eg [mysql stories](https://www.pivotaltracker.com/services/v5/projects/969486/stories?filter=mysql) 
+     * or [mysql search](https://www.pivotaltracker.com/services/v5/projects/969486/search?query=mysql), see  http://www.pivotaltracker.com/help/faq#howcanasearchberefined
+     * aggregate among multiple projects, possibly using the [upcoming request aggregator](http://www.pivotaltracker.com/help/api/rest/v5#Request_Aggregator)
+  
 
 ## twitter
 
