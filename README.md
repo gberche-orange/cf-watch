@@ -44,11 +44,12 @@ Implementation-wise:
 
 * cf community blogs
 * this week in cf
-* cloudfoundry google group
+* cloudfoundry google group (e.g. [mysql](https://groups.google.com/a/cloudfoundry.org/forum/?fromgroups=#!topicsearch/mysql) )
 * pipelines
    * http://bosh_artifacts.cfapps.io/
    * http://git-pipeline.cfapps.io/pipelines/runtime
    * travis-ci
-* youtube
+* youtube videos and transcripts ( eg [CFAD](https://www.youtube.com/api/timedtext?sparams=asr_langs%2Ccaps%2Cv%2Cexpire&expire=1426700408&caps=asr&hl=en-US&key=yttt1&signature=911C9CE963387B5FE74370C642A622094976AB2F.4D672E50A26B8815277CDE78B023039E3B150BFD&v=UQFU3tpWwiI&asr_langs=ru%2Ces%2Cnl%2Cpt%2Cko%2Cde%2Cit%2Cja%2Cen%2Cfr&type=track&lang=en&name&kind=asr&fmt=1) )
+* trackers
 
 ## twitter
