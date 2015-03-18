@@ -10,7 +10,8 @@ shortcuts to ease watching and searching cf related activities
 * Twitter, e.g. [q=mysql](https://twitter.com/search?q=mysql%20cloudfoundry&src=typd)
 * Cf Pipeline log, e.g. [q=loggregator](https://www.google.fr/search?q=site:git-pipeline.cfapps.io+routing-api&ie=utf-8&oe=utf-8&gws_rd=cr&ei=QFcJVdXVA8u07gb__4DwBA#q=site:git-pipeline.cfapps.io+loggregator)
 * Blogs e.g. [q=ldap](https://www.google.fr/search?q=ldap+site:blog.pivotal.io+OR+site:http://www.thisweekincf.com)   
-# todo
+* Distro manuals e.g. [q=mysql](https://www.google.fr/search?q=mysql+site:docs.pivotal.io+OR+inurl:www.ng.bluemix.net/docs+OR+site:docs.stackato.com)
+
 
 ## github
 
@@ -45,6 +46,7 @@ Implementation-wise:
 
 ## other sources
 
+* product documentations
 * cf community blogs
 * this week in cf
 * cloudfoundry google group (e.g. [mysql](https://groups.google.com/a/cloudfoundry.org/forum/?fromgroups=#!topicsearch/mysql) )
