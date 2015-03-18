@@ -9,7 +9,7 @@ shortcuts to ease watching and searching cf related activities
 * Google groups, e.g. [q=mysql](https://groups.google.com/a/cloudfoundry.org/forum/?fromgroups=#!topicsearch/mysql)
 * Twitter, e.g. [q=mysql](https://twitter.com/search?q=mysql%20cloudfoundry&src=typd)
 * Cf Pipeline log, e.g. [q=loggregator](https://www.google.fr/search?q=site:git-pipeline.cfapps.io+routing-api&ie=utf-8&oe=utf-8&gws_rd=cr&ei=QFcJVdXVA8u07gb__4DwBA#q=site:git-pipeline.cfapps.io+loggregator)
-   
+* Blogs e.g. [q=ldap](https://www.google.fr/search?q=ldap+site:blog.pivotal.io+OR+site:http://www.thisweekincf.com)   
 # todo
 
 ## github
@@ -40,7 +40,8 @@ Implementation-wise:
      * https://github.com/gresrun/GHOrgBrowser (java)
    * libs
      * https://github.com/philschatz/octokat.js
-
+* Leverage existing aggregator and social monitoring tools:
+  *  initial list http://www.brandwatch.com/2014/04/top-8-great-value-social-media-analytics-tools/
 
 ## other sources
 
