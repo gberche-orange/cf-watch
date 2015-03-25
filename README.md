@@ -15,6 +15,7 @@ shortcuts to ease watching and searching cf related activities
 
 ## github
 * more influencial users: cdavisafc
+* display forked repos fork:true as [forked repos are filtered by default](https://help.github.com/articles/searching-repositories/#search-based-on-the-number-of-forks-the-parent-repository-has)
 * more sources
   * wikis such as cf-community wikis
     * currently [custom google search query](https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Search)
