@@ -14,7 +14,7 @@ shortcuts to ease watching and searching cf related activities
 
 
 ## github
-
+* more influencial users: cdavisafc
 * more sources
   * wikis such as cf-community wikis
     * currently [custom google search query](https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Search)
