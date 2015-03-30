@@ -14,7 +14,7 @@ shortcuts to ease watching and searching cf related activities
 
 
 ## github
-* more influencial users: cdavisafc
+* add more influencial users: cdavisafc, dmikusa-pivotal
 * display forked repos fork:true as [forked repos are filtered by default](https://help.github.com/articles/searching-repositories/#search-based-on-the-number-of-forks-the-parent-repository-has)
 * more sources
   * wikis such as cf-community wikis
