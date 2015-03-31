@@ -8,13 +8,35 @@
  * Controller of the cfWatchApp
  */
 angular.module('cfWatchApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $scope.redirect = function () {
-      window.location.href = "https://github.com/search?utf8=%E2%9C%93&q=" + $scope.query + "+user%3Acloudfoundry+user%3Acloudfoundry-incubator+user%3Acloudfoundry-community+user%3Acloudfoundry-samples+user%3Apivotal-cf+user%3Acf-platform-eng+user%3APivotal-Field-Engineering+user%3Apivotalservices+user%3Apivotal-cf-workshop+user%3Apivotal-cf-experimental+user%3Acf-services+user%3Apcf-guides+user%3Apivotalsoftware+user%3Apivotal-cf-workshop+user%3APivotal-CF-Support+user%3Acfmobile+user%3Apivotal-lattice+user%3APivotal-Solutions+user%3Astarkandwayne+user%3AAltoros+user%3AActiveState+user%3ACloudCredo+user%3AIBM-Bluemix+user%3Aippontech+user%3Alogsearch+user%3Aspring+user%3Aspring-projects+user%3Aspring-guides+user%3Aspgreenberg+user%3Amstine+user%3Ajoshlong+user%3Amheath+user%3Ayoungm&type=Repositories&ref=advsearch&l=";
+  .controller('MainCtrl', function ($scope, $http, GithubSearch) {
+    $http.get('data/filter.json')
+      .then(function (res) {
+        $scope.list = res.data;
+      });
+
+
+    $scope.checkSubTree = function (node, checked) {
+      if (checked === undefined || checked === false) {
+        checked = true;
+      } else {
+        checked = false;
+      }
+      angular.forEach(node.items, function (node) {
+        node.checked = checked;
+      });
+      if (checked) {
+        $scope.finalQuery = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
+      }
+    };
+
+    $scope.searchLink = function () {
+      return GithubSearch.getGithubNormalSearchUrl() + GithubSearch.createQueryFromNodes($scope.query, $scope.list);
+    };
+    $scope.search = function () {
+      var query = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
+      GithubSearch.search('repositories', query, function (res) {
+        $scope.githubResults = res.data.items;
+        console.log(res);
+      });
     };
   });

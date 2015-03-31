@@ -1,0 +1,43 @@
+[
+  {
+    "name": "CF Core"
+  },
+  {
+    "name": "Commercial Distrib",
+    "items": [
+      {
+        "name": "Stackato"
+      },
+      {
+        "name": "Bluemix",
+        "github": [
+          "IBM-Bluemix",
+          "Bluemix"
+        ],
+        "manuals": [
+          "www.ng.bluemix.net/docs"
+        ],
+        "twitter": [
+          "bluemix"
+        ],
+        "blog": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Influencers",
+    "items": [
+      {
+        "name": "mheat"
+      },
+      {
+        "name": "jbayer"
+      }
+    ]
+  },
+  {
+    "name": "Spring"
+  }
+]

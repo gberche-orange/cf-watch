@@ -1,37 +1,63 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
 <div class="row">
-  <div class=".col-md-8">
-    <h4>Github Form</h4>
-
+  <div class=".col-md-12">
+    <h1>Search Form</h1>
+    <hr/>
     <form>
       <div class="form-group">
         <label for="queryId">Query</label>
-        <input type="text" id="queryId" placeholder="mysql" ng-model="query">
+        <input type="text" class="form-control" id="queryId" placeholder="mysql" ng-model="query">
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" ng-model="cfCheckbox"> CF
-        </label>
+
+      <div ui-tree data-drag-enabled="false">
+        <ol ui-tree-nodes="" ng-model="list" id="tree-root">
+          <li ng-repeat="node in list" ui-tree-node="" ng-include="'nodes_renderer.html'"></li>
+        </ol>
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" ng-model="cfComCheckbox"> CF Community
-        </label>
-      </div>
-      <button ng-click="redirect()" class="btn btn-default">Submit</button>
+      <a ng-click="search()" class="btn btn-default">Magic search</a>
+      <a href="#" ng-href="{{ searchLink() }}" class="btn btn-default">Github link</a>
     </form>
-  </div>
-  <div class=".col-md-4">
 
   </div>
 </div>
+<div class="row">
+  <div class=".col-md-12" ng-show="githubResults != null">
+    <h2>
+      Github Results
+    </h2>
+    <!-- Tab panes -->
+    <tabset>
+      <tab heading="Repositories">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="githubResult in githubResults">
+            <p><a ng-href="{{ githubResult.html_url }}">{{ githubResult.full_name }}</a></p>
+
+            <p>{{ githubResult.description }}</p>
+          </li>
+        </ul>
+      </tab>
+      <tab heading="Code">
+        code?
+      </tab>
+      <tab heading="Issues">
+        issues?
+      </tab>
+      <tab heading="Users">
+        Users
+      </tab>
+    </tabset>
+
+
+  </div>
+</div>
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle>
+    <label>
+      <input type="checkbox" ng-checked="node.checked" ng-model="node.isChecked"
+             ng-click="checkSubTree(node, node.isChecked)"> {{node.name}}
+    </label>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.items">
+    <li ng-repeat="node in node.items" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
