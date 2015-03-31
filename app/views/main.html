@@ -28,10 +28,10 @@
     <tabset>
       <tab select="alertMe()">
         <tab-heading>
-          Repositories <span class="badge">{{ githubResults.length }}</span>
+          Repositories <span class="badge">{{ githubResults.total_count }}</span>
         </tab-heading>
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="githubResult in githubResults">
+          <li class="list-group-item" ng-repeat="githubResult in githubResults.items">
             <p><a ng-href="{{ githubResult.html_url }}">{{ githubResult.full_name }}</a></p>
 
             <p>{{ githubResult.description }}</p>

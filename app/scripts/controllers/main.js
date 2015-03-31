@@ -35,7 +35,7 @@ angular.module('cfWatchApp')
     $scope.search = function () {
       var query = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
       GithubSearch.search('repositories', query, function (res) {
-        $scope.githubResults = res.data.items;
+        $scope.githubResults = res.data;
         console.log(res);
       });
     };
