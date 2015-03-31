@@ -26,7 +26,10 @@
     </h2>
     <!-- Tab panes -->
     <tabset>
-      <tab heading="Repositories">
+      <tab select="alertMe()">
+        <tab-heading>
+          Repositories <span class="badge">{{ githubResults.length }}</span>
+        </tab-heading>
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="githubResult in githubResults">
             <p><a ng-href="{{ githubResult.html_url }}">{{ githubResult.full_name }}</a></p>
