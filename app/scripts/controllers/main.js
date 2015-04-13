@@ -36,26 +36,27 @@ angular.module('cfWatchApp')
     $scope.getRepoUrl = function (url) {
       return 'https://github.com/' + $scope.getRepoName(url);
     };
-
-    $scope.searchRepoByPage = function (page) {
+    $scope.searchGithubByTypeAndPage = function (type, page) {
       page = page || 1;
-      GithubSearch.search('repositories', $scope.queryGithub, function (res) {
+      GithubSearch.search(type, $scope.queryGithub, function (res) {
+        var finalType = null;
+        if (type === 'repositories') {
+          finalType = 'Repo';
+        } else {
+          finalType = 'Issues';
+        }
         $scope.githubResults = 1;
-        $scope.pageRepo = 1;
-        $scope.githubResultsRepo = res.data;
-        $scope.githubCurrentPageRepo = page;
-        $scope.githubResultsNbRepo = GithubSearch.nbPages(res);
+        $scope['page' + finalType] = 1;
+        $scope['githubResults' + finalType] = res.data;
+        $scope['githubCurrentPage' + finalType] = page;
+        $scope['githubResultsNb' + finalType] = GithubSearch.nbPages(res);
       }, page);
     };
+    $scope.searchRepoByPage = function (page) {
+      $scope.searchGithubByTypeAndPage('repositories', page);
+    };
     $scope.searchIssuesByPage = function (page) {
-      page = page || 1;
-      GithubSearch.search('issues', $scope.queryGithub, function (res) {
-        $scope.pageIssues = 1;
-        $scope.githubResultsIssues = res.data;
-        $scope.githubCurrentPageIssues = page;
-        $scope.githubResultsNbIssues = GithubSearch.nbPages(res);
-        console.log(res);
-      }, page);
+      $scope.searchGithubByTypeAndPage('issues', page);
     };
     $scope.search = function () {
       $scope.queryGithub = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
