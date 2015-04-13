@@ -10,13 +10,14 @@
 angular.module('cfWatchApp')
   .factory('GithubSearch', function ($resource) {
     var githubNormalSearchUrl = 'https://github.com/search?type=Repositories&ref=advsearch&q=';
+    var perPage = 5;
     var resource = $resource(
       'https://api.github.com/search/:type?q=:q',
       {
         'type': 'repositories',
         'q': '',
         'callback': 'JSON_CALLBACK',
-        'per_page': 50
+        'per_page': perPage
       }, {
         'get': {
           'method': 'JSONP'
@@ -28,11 +29,19 @@ angular.module('cfWatchApp')
 
     }
 
-    GithubSearch.search = function (type, query, callback) {
+    GithubSearch.search = function (type, query, callback, page) {
+      if (page === undefined || page === null) {
+        page = 1;
+      }
+      page = parseInt(page);
       resource.get(
-        {'type': type, 'q': query},
+        {'type': type, 'q': query, 'page': page},
         callback
       );
+    };
+    GithubSearch.nbPages = function (res) {
+      return Math.ceil(res.data.total_count / perPage);
+
     };
     GithubSearch.createQueryFromNodes = function (baseQuery, nodes) {
       var datas = [];

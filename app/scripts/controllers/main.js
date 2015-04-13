@@ -14,13 +14,8 @@ angular.module('cfWatchApp')
         $scope.list = res.data;
       });
 
-
     $scope.checkSubTree = function (node, checked) {
-      if (checked === undefined || checked === false) {
-        checked = true;
-      } else {
-        checked = false;
-      }
+      checked = !!(checked === undefined || checked === false);
       angular.forEach(node.items, function (node) {
         node.checked = checked;
       });
@@ -30,13 +25,42 @@ angular.module('cfWatchApp')
     };
 
     $scope.searchLink = function () {
+
       return GithubSearch.getGithubNormalSearchUrl() + GithubSearch.createQueryFromNodes($scope.query, $scope.list);
     };
-    $scope.search = function () {
-      var query = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
-      GithubSearch.search('repositories', query, function (res) {
-        $scope.githubResults = res.data;
+    $scope.getRepoName = function (url) {
+      var exRepo = new RegExp('http(s?)://github\.com/([^/]*/[^/]*)/.*');
+      var repo = exRepo.exec(url);
+      return repo[2];
+    };
+    $scope.getRepoUrl = function (url) {
+      return 'https://github.com/' + $scope.getRepoName(url);
+    };
+
+    $scope.searchRepoByPage = function (page) {
+      page = page || 1;
+      GithubSearch.search('repositories', $scope.queryGithub, function (res) {
+        $scope.githubResults = 1;
+        $scope.pageRepo = 1;
+        $scope.githubResultsRepo = res.data;
+        $scope.githubCurrentPageRepo = page;
+        $scope.githubResultsNbRepo = GithubSearch.nbPages(res);
+      }, page);
+    };
+    $scope.searchIssuesByPage = function (page) {
+      page = page || 1;
+      GithubSearch.search('issues', $scope.queryGithub, function (res) {
+        $scope.pageIssues = 1;
+        $scope.githubResultsIssues = res.data;
+        $scope.githubCurrentPageIssues = page;
+        $scope.githubResultsNbIssues = GithubSearch.nbPages(res);
         console.log(res);
-      });
+      }, page);
+    };
+    $scope.search = function () {
+      $scope.queryGithub = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
+      $scope.searchRepoByPage(1);
+      $scope.searchIssuesByPage(1);
+
     };
   });
