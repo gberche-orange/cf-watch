@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.tree',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'hljs'
   ])
   .config(function ($routeProvider) {
     $routeProvider

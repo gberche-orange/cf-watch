@@ -10,17 +10,17 @@
 angular.module('cfWatchApp')
   .factory('GithubSearch', function ($resource) {
     var githubNormalSearchUrl = 'https://github.com/search?type=Repositories&ref=advsearch&q=';
-    var perPage = 5;
+    var perPage = 10;
     var resource = $resource(
       'https://api.github.com/search/:type?q=:q',
       {
         'type': 'repositories',
         'q': '',
-        'callback': 'JSON_CALLBACK',
         'per_page': perPage
       }, {
         'get': {
-          'method': 'JSONP'
+          'method': 'GET',
+          'headers': {'Accept': 'application/vnd.github.v3.text-match+json'}
         }
       }
     );
@@ -40,7 +40,7 @@ angular.module('cfWatchApp')
       );
     };
     GithubSearch.nbPages = function (res) {
-      return Math.ceil(res.data.total_count / perPage);
+      return Math.ceil(res.total_count / perPage);
 
     };
     GithubSearch.createQueryFromNodes = function (baseQuery, nodes) {

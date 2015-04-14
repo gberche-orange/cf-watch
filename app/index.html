@@ -8,12 +8,16 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css" />
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/monokai_sublime.css -->
+  <link rel="stylesheet" href="styles/monokai_sublime.css">
   <!-- endbuild -->
 </head>
 <body ng-app="cfWatchApp">
@@ -55,7 +59,9 @@
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/highlightjs/highlight.pack.js"></script>
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-highlightjs/build/angular-highlightjs.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -69,11 +75,13 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/utils/highlight.pack.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/services/githubsearch.js"></script>
 <script src="scripts/filters/makerange.js"></script>
+<script src="scripts/filters/fileextension.js"></script>
 <!-- endbuild -->
 </body>
 </html>

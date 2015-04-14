@@ -19,3 +19,16 @@ footer {
 .tab-pane .minus a:visited:hover {
   color: black;
 }
+
+.avatarGithub {
+  display: block;
+  float: left;
+  margin-right: 7px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.codeFragment {
+  margin-left: 55px;
+}

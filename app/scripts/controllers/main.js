@@ -9,11 +9,12 @@
  */
 angular.module('cfWatchApp')
   .controller('MainCtrl', function ($scope, $http, GithubSearch) {
+
     $http.get('data/filter.json')
       .then(function (res) {
         $scope.list = res.data;
       });
-
+    $scope.githubSearching = [];
     $scope.checkSubTree = function (node, checked) {
       checked = !!(checked === undefined || checked === false);
       angular.forEach(node.items, function (node) {
@@ -25,7 +26,6 @@ angular.module('cfWatchApp')
     };
 
     $scope.searchLink = function () {
-
       return GithubSearch.getGithubNormalSearchUrl() + GithubSearch.createQueryFromNodes($scope.query, $scope.list);
     };
     $scope.getRepoName = function (url) {
@@ -39,17 +39,31 @@ angular.module('cfWatchApp')
     $scope.searchGithubByTypeAndPage = function (type, page) {
       page = page || 1;
       GithubSearch.search(type, $scope.queryGithub, function (res) {
-        var finalType = null;
-        if (type === 'repositories') {
-          finalType = 'Repo';
-        } else {
-          finalType = 'Issues';
+        console.log(res);
+        var index = -1;
+        angular.forEach($scope.githubSearching, function (result, key) {
+          if (result.name === type) {
+            index = key;
+          }
+        });
+        if (index !== -1) {
+          $scope.githubSearching[index].page = 1;
+          $scope.githubSearching[index].githubResults = res;
+          $scope.githubSearching[index].githubCurrentPage = page;
+          $scope.githubSearching[index].githubResultsNb = GithubSearch.nbPages(res);
+          return;
         }
+        var search = {};
+
         $scope.githubResults = 1;
-        $scope['page' + finalType] = 1;
-        $scope['githubResults' + finalType] = res.data;
-        $scope['githubCurrentPage' + finalType] = page;
-        $scope['githubResultsNb' + finalType] = GithubSearch.nbPages(res);
+        search.name = type;
+        search.page = 1;
+        search.githubResults = res;
+        search.githubCurrentPage = page;
+        search.githubResultsNb = GithubSearch.nbPages(res);
+        $scope.githubSearching.push(search);
+
+
       }, page);
     };
     $scope.searchRepoByPage = function (page) {
@@ -58,10 +72,19 @@ angular.module('cfWatchApp')
     $scope.searchIssuesByPage = function (page) {
       $scope.searchGithubByTypeAndPage('issues', page);
     };
+    $scope.searchCodeByPage = function (page) {
+      $scope.searchGithubByTypeAndPage('code', page);
+    };
+    $scope.searchUsersByPage = function (page) {
+      $scope.searchGithubByTypeAndPage('users', page);
+    };
     $scope.search = function () {
+      $scope.githubSearching = [];
       $scope.queryGithub = GithubSearch.createQueryFromNodes($scope.query, $scope.list);
       $scope.searchRepoByPage(1);
       $scope.searchIssuesByPage(1);
+      $scope.searchUsersByPage(1);
+      $scope.searchCodeByPage(1);
 
     };
   });
