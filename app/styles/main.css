@@ -32,3 +32,8 @@ footer {
 .codeFragment {
   margin-left: 55px;
 }
+
+a.seeMore {
+  background: none !important;
+  color: black !important;
+}

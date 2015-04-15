@@ -8,7 +8,7 @@
  * Factory in the cfWatchApp.
  */
 angular.module('cfWatchApp')
-  .factory('GithubSearch', function ($resource) {
+  .factory('GithubSearch', function ($resource, AbstractSearcher) {
     var githubNormalSearchUrl = 'https://github.com/search?type=Repositories&ref=advsearch&q=';
     var perPage = 10;
     var resource = $resource(
@@ -26,51 +26,20 @@ angular.module('cfWatchApp')
     );
 
     function GithubSearch() {
-
+      this.abstractSearcher = new AbstractSearcher(resource, githubNormalSearchUrl);
     }
 
-    GithubSearch.search = function (type, query, callback, page) {
-      if (page === undefined || page === null) {
-        page = 1;
-      }
-      page = parseInt(page);
-      resource.get(
-        {'type': type, 'q': query, 'page': page},
-        callback
-      );
+    GithubSearch.prototype.search = function (type, query, callback, page) {
+      this.abstractSearcher.search(type, query, callback, page);
     };
-    GithubSearch.nbPages = function (res) {
-      return Math.ceil(res.total_count / perPage);
-
+    GithubSearch.prototype.nbPages = function (res) {
+      return this.abstractSearcher.nbPages(res.total_count, perPage);
     };
-    GithubSearch.createQueryFromNodes = function (baseQuery, nodes) {
-      var datas = [];
-      angular.forEach(nodes, function (node) {
-        extractDataFromNodes(node, datas);
-      });
-      var query = baseQuery;
-
-      angular.forEach(datas, function (value) {
-        query += ' user:' + value;
-      });
-      return query;
+    GithubSearch.prototype.createQueryFromNodes = function (baseQuery, nodes) {
+      return this.abstractSearcher.createQueryFromNodes(baseQuery, nodes, 'github', ' user:');
     };
-    function extractDataFromNodes(nodes, datas) {
-      if (nodes.items !== undefined && nodes.items.length > 0) {
-        angular.forEach(nodes.items, function (node) {
-          extractDataFromNodes(node, datas);
-        });
-        return;
-      }
-      if (nodes.github !== undefined && nodes.checked) {
-        angular.forEach(nodes.github, function (value) {
-          datas.push(value);
-        });
-      }
-    }
-
-    GithubSearch.getGithubNormalSearchUrl = function () {
-      return githubNormalSearchUrl;
+    GithubSearch.prototype.getGithubNormalSearchUrl = function () {
+      return this.abstractSearcher.getSearchUrl();
     };
-    return GithubSearch;
+    return new GithubSearch();
   });

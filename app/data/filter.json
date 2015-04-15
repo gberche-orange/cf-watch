@@ -30,10 +30,16 @@
     "name": "Influencers",
     "items": [
       {
-        "name": "mheat"
+        "name": "mheat",
+        "github": [
+          "mheat"
+        ]
       },
       {
-        "name": "jbayer"
+        "name": "jbayer",
+        "github": [
+          "jbayer"
+        ]
       }
     ]
   },

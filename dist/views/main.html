@@ -1,4 +1,4 @@
-<div class="row"> <div class=".col-md-12"> <h1>Search Form</h1> <hr> <form> <div class="form-group"> <label for="queryId">Query</label> <input type="text" class="form-control" id="queryId" placeholder="mysql" ng-model="query"> </div> <div ui-tree data-drag-enabled="false"> <ol ui-tree-nodes="" ng-model="list" id="tree-root"> <li ng-repeat="node in list" ui-tree-node="" ng-include="'nodes_renderer.html'"></li> </ol> </div> <button ng-click="search()" class="btn btn-default">Magic search</button> <a href="#" ng-href="{{ searchLink() }}" class="btn btn-default">Github link</a> </form> </div> </div> <div class="row"> <div class=".col-md-12" ng-show="githubResults != null"> <h2> Github Results </h2> <!-- Tab panes --> <tabset> <tab ng-repeat="result in githubSearching"> <tab-heading> {{ result.name }} <span class="badge">{{ result.githubResults.total_count }}</span> </tab-heading> <ul class="list-group"> <span ng-switch on="result.name"> <span ng-switch-when="repositories"> <li class="list-group-item" ng-repeat="githubResult in result.githubResults.items" ng-include="'github_repositories_renderer.html'"></li> </span> <span ng-switch-when="issues"> <li class="list-group-item" ng-repeat="githubResult in result.githubResults.items" ng-include="'github_issues_renderer.html'"></li> </span> <span ng-switch-when="users"> <li class="list-group-item" ng-repeat="githubResult in result.githubResults.items" ng-include="'github_users_renderer.html'"></li> </span> <span ng-switch-when="code"> <li class="list-group-item" ng-repeat="githubResult in result.githubResults.items" ng-include="'github_code_renderer.html'"></li> </span> </span> </ul> <nav> <ul class="pagination pagination-sm"> <li ng-class="{'disabled' : result.githubCurrentPage <= 1}"> <a href="" ng-click="searchGithubByTypeAndPage(result.name, result.githubCurrentPage-1)" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li> <li ng-repeat="n in [1, result.githubResultsNb] | makeRange" ng-class="{'active': n == result.githubCurrentPage}"> <a href="" ng-click="searchGithubByTypeAndPage(result.name, n)">{{ n }}</a> </li> <li ng-class="{'disabled' : result.githubCurrentPage >= result.githubResultsNb}"> <a href="" aria-label="Next" ng-click="searchGithubByTypeAndPage(result.name, result.githubCurrentPage+1)"> <span aria-hidden="true">&raquo;</span> </a> </li> </ul> </nav> </tab> </tabset> </div> </div> <script type="text/ng-template" id="nodes_renderer.html"><div ui-tree-handle>
+<div class="row"> <div class=".col-md-12"> <h1>Search Form</h1> <hr> <form> <div class="form-group"> <label for="queryId">Query</label> <input type="text" class="form-control" id="queryId" placeholder="mysql" ng-model="query"> </div> <div ui-tree data-drag-enabled="false"> <ol ui-tree-nodes="" ng-model="list" id="tree-root"> <li ng-repeat="node in list" ui-tree-node="" ng-include="'nodes_renderer.html'"></li> </ol> </div> <button ng-click="search()" class="btn btn-default">Magic search</button> <a href="#" ng-href="{{ searchLink() }}" class="btn btn-default">Github link</a> </form> <div ng-show="progressBar !== null" class="row"> <div class="col-sm-4"> <progressbar class="progress-striped active" value="progressBar.value" type="{{progressBar.type}}"> {{progressBar.text}} </progressbar> </div> </div> </div> </div> <div class="row"> <div class=".col-md-12" ng-include="'views/templates/github.html'"> </div> <div class=".col-md-12" ng-show="googleResults != null"> <h2> Google Results </h2> </div> </div> <script type="text/ng-template" id="nodes_renderer.html"><div ui-tree-handle>
     <label>
       <input type="checkbox" ng-checked="node.checked" ng-model="node.isChecked"
              ng-click="checkSubTree(node, node.isChecked)"> {{node.name}}
@@ -7,28 +7,4 @@
   <ol ui-tree-nodes="" ng-model="node.items">
     <li ng-repeat="node in node.items" ui-tree-node ng-include="'nodes_renderer.html'">
     </li>
-  </ol></script> <script type="text/ng-template" id="github_repositories_renderer.html"><p><a ng-href="{{ githubResult.html_url }}">{{ githubResult.full_name }}</a></p>
-
-  <p>{{ githubResult.description }}</p></script> <script type="text/ng-template" id="github_issues_renderer.html"><p><a ng-href="{{ githubResult.html_url }}">{{ githubResult.title }}</a></p>
-
-  <p class="minus">
-    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a
-    ng-href="{{ getRepoUrl(githubResult.html_url) }}">{{ getRepoName(githubResult.html_url) }}</a>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Opened by <a
-    ng-href="{{ githubResult.user.html_url }}"> {{ githubResult.user.login }}</a> on {{
-    githubResult.created_at | date:'dd MMM yyyy' }}
-  </p></script> <script type="text/ng-template" id="github_code_renderer.html"><p>
-    <img ng-src="{{githubResult.repository.owner.avatar_url}}" width="48" class="avatarGithub" height="48"
-         alt="avatar {{ githubResult.repository.owner.login }}"/><a
-    ng-href="{{ githubResult.repository.owner.html_url }}">{{ githubResult.repository.owner.login }}</a>
-    -
-    <a
-      ng-href="{{ githubResult.html_url }}">{{ githubResult.name }}</a>
-  </p>
-  <div class="codeFragment">
-  <span ng-repeat="text_matche in githubResult.text_matches">
-    <div hljs source="text_matche.fragment"></div>
-  </span>
-  </div></script> <script type="text/ng-template" id="github_users_renderer.html"><p><img ng-src="{{githubResult.avatar_url}}" width="48" class="avatarGithub" height="48"
-          alt="avatar {{ githubResult.login }}"/><a
-    ng-href="{{ githubResult.html_url }}">{{ githubResult.login }}</a></p></script>
+  </ol></script>
