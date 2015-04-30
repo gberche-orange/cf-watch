@@ -72,5 +72,3 @@ Implementation-wise:
 
  * eg [mysql](https://twitter.com/search?q=mysql%20cloudfoundry&src=typd)
 
-## random notes
-
