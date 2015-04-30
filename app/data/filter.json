@@ -1,12 +1,58 @@
 [
   {
-    "name": "CF Core"
-  },
-  {
-    "name": "Commercial Distrib",
+    "name": "CF Core",
     "items": [
       {
-        "name": "Stackato"
+        "name": "CloudFoundry community",
+        "github": [
+          "cloudfoundry-community",
+          "logsearch"
+        ],
+        "manuals": [
+          "www.logsearch.io/docs/"
+        ],
+        "blog": [
+          "www.logsearch.io/blog/"
+        ]
+      },
+      {
+        "name": "CloudFoundry foundation",
+        "github": [
+          "cloudfoundry",
+          "cloudfoundry-incubator",
+          "cloudfoundry-samples"
+        ],
+        "manuals": [
+          "docs.cloudfoundry.org",
+          "apidocs.cloudfoundry.org"
+        ],
+        "twitter": [
+          "cloudfoundry"
+        ],
+        "blog": [
+          "blog.cloudfoundry.org"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Distributions",
+    "items": [
+      {
+        "name": "Stackato",
+        "github": [
+          "Stackato-Apps",
+          "ActiveState"
+        ],
+        "manuals": [
+          "docs.stackato.com"
+        ],
+        "twitter": [
+          "activestate"
+        ],
+        "blog": [
+          "www.activestate.com/blog"
+        ]
       },
       {
         "name": "Bluemix",
@@ -23,27 +69,147 @@
         "blog": [
           ""
         ]
+      },
+      {
+        "name": "Pivotal",
+        "github": [
+          "pivotal-cf",
+          "cf-platform-eng",
+          "Pivotal-Field-Engineering",
+          "pivotalservices",
+          "pivotal-cf-workshop",
+          "pivotal-cf-experimental",
+          "cf-services",
+          "pcf-guides",
+          "pivotal-cf-workshop",
+          "pivotalsoftware",
+          "Pivotal-CF-Support",
+          "cfmobile",
+          "pivotal-lattice",
+          "Pivotal-Solutions"
+        ],
+        "manuals": [
+          "docs.run.pivotal.io"
+        ],
+        "twitter": [
+          "pivotal"
+        ],
+        "blog": [
+          "blog.pivotal.io",
+          "www.thisweekincf.com"
+        ]
       }
     ]
   },
   {
-    "name": "Influencers",
+    "name": "Consulting",
     "items": [
       {
-        "name": "mheat",
+        "name": "Stark and Wayne",
         "github": [
-          "mheat"
+          "starkandwayne",
+          "drnic"
+        ],
+        "twitter": [
+          "StarkAndWayne",
+          "drnic"
+        ],
+        "blog": [
+          "blog.starkandwayne.com"
         ]
       },
+      {
+        "name": "Altoros",
+        "github": [
+          "Altoros",
+          "allomov"
+        ],
+        "twitter": [
+          "altoros"
+        ],
+        "blog": [
+          "blog.altoros.com"
+        ]
+      },
+      {
+        "name": "ippon",
+        "github": [
+          "ippontech"
+        ]
+      },
+      {
+        "name": "CloudCredo",
+        "github": [
+          "CloudCredo"
+        ],
+        "twitter": [
+          "cloudcredo",
+          "hatofmonkeys"
+        ],
+        "blog": [
+          "http://www.cloudcredo.com/blog"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Frameworks",
+    "items": [
+      {
+        "name": "spring",
+        "github": [
+          "spring",
+          "spring-projects",
+          "spring-guide"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Individual influencers",
+    "items": [
       {
         "name": "jbayer",
         "github": [
           "jbayer"
         ]
+      },
+      {
+        "name": "joshlong",
+        "github": [
+          "joshlong"
+        ]
+      },
+      {
+        "name": "youngm",
+        "github": [
+          "youngm"
+        ]
+      },
+      {
+        "name": "mheath",
+        "github": [
+          "mheath"
+        ]
+      },
+      {
+        "name": "frodenas",
+        "github": [
+          "frodenas"
+        ]
+      },
+      {
+        "name": "mstine",
+        "github": [
+          "mstine "
+        ]
+      },
+      {
+        "name": "spgreenberg",
+        "github": [
+          "spgreenberg "
+        ]
       }
     ]
-  },
-  {
-    "name": "Spring"
   }
 ]
