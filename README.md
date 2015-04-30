@@ -12,6 +12,10 @@ shortcuts to ease watching and searching cf related activities
 * Blogs e.g. [q=ldap](https://www.google.fr/search?q=ldap+site:blog.pivotal.io+OR+site:http://www.thisweekincf.com)   
 * Distro manuals e.g. [q=mysql](https://www.google.fr/search?q=mysql+%28site:docs.pivotal.io+OR+site:docs.run.pivotal.io+OR+site:www.ng.bluemix.net/docs+OR+site:docs.stackato.com%29))
 
+# webapp prototype
+
+The following prototypes attempts to make the shortcuts more maintaineable, try it at: 
+http://rawgit.com/gberche-orange/cf-watch/master/dist/index.html#/
 
 ## github
 * add more influencial users: cdavisafc, dmikusa-pivotal
